@@ -1,0 +1,25 @@
+{
+  "name": "alex",
+  "version": "1.0.0",
+  "description": "Creating a website for my friend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajen8005/IndigoProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ajen8005/IndigoProject/issues"
+  },
+  "homepage": "https://github.com/Ajen8005/IndigoProject#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}

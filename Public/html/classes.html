@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Indigo Project!</title>
+</head>
+<style>
+
+    .class_icons {
+        height: 100px;
+        width: 100px;
+    }
+    .class_icons:hover
+    {
+        -webkit-box-shadow: 0px 0px 100px 0px rgb(245, 241, 12);
+        -moz-box-shadow: 0px 0px 100px 0px rgb(248, 225, 17);
+        box-shadow: 0px 0px 100px 3px rgb(250, 213, 6);
+        border-radius: 50%;
+    }
+    .verticle-center{
+        margin: 0;
+        position: relative;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .dndbackground {
+      background-image: url("../imgs/dndbackground.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      height: 1200px;
+    }
+    </style>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+        </symbol>
+        <symbol id="twitter" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+        </symbol>
+    </svg>
+
+    <main class = "dndbackground">
+        <!-- Header -->
+        <div class="container border-3 py-1" style="background-color: white;" >
+            <header class="d-flex justify-content-center py-3 mb-4 border-bottom border-dark" style="background-color: white;">
+                <ul class="nav col-1 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/html/home.html" class="nav-link px-2 link-dark">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 link-secondary active">Classes</a></li>
+                    <li><a href="/html/gene_splicing.html" class="nav-link px-2 link-dark">Gene Splicing</a></li>
+                    <li><a href="/html/background.html" class="nav-link px-2 link-dark">Backgrounds</a></li>
+                </ul>
+            </header>
+        </div>
+        
+        <div class = "container justify-content-center d-flex py-2"  style="background-color: white;" >
+            <img class = "d-flex justify-content-center mb-md-4" src= "/imgs/classes.png">
+        </div>
+
+        <div class = "container border rounded py-2" style ="background-color:gray;">
+            <ul class = "nav col-1 col-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/faithless.png" name= "Faithless" class = "class_icons" id = "Faithless">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Faithless</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/guardian.png" name= "Guardian" class = "class_icons" id = "Guardian">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Guardian</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/fledged.png" name= "Fledged" class = "class_icons" id = "Fledged">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Fledged</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/bullies.png" name= "Bullies" class = "class_icons" id = "Bullies">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Bullies</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/hardknocks.png" name= "Hard" class = "class_icons" id = "Hard">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Hard Knocks</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id)  src= "/imgs/student.png" name= "Student" class = "class_icons" id = "Student">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Student</p1>
+                </li>
+                <li class = "px-4">
+                    <input type = "image" onclick = toggleClass(id) src= "/imgs/leader.png" name= "Leader" class = "class_icons" id = "Leader">
+                    <br>
+                    <p1 class = "d-flex justify-content-sm-center">Leader</p1>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Faithless Class Page -->
+        <div class = "container rounded py-0" style = "display: block" id= "faith">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/faithless.jpg" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Faithless characters remove 2 from their total Order (negatives are allowed).</li>
+                            <br>
+                            <li class = "ms-4">Faithless characters add 2 total across any stats of their choice (either 1 in one, and 1 in another, or 2 in a single stat).</li>
+                            <br>
+                            <li class = "ms-4">Faithless characters automatically unlock the Brutality skill.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Faithless characters can resist being downed (both in and out of combat) by attempting a D20 role. If the result was lower than their current Order, the character stays able to act, even if it’s health is negative. (This must be rolled again each time they may be knocked down.).</li>
+                            <br>
+                            <li class = "ms-4">Faithless may reroll their resist roll one time, when resisting being influenced.</li>
+                            <br>
+                            <li class = "ms-4">if a Faithless character becomes mutated, they may roll a D20. If the result is 15 or above, they resist the negative aspects of such mutation. This can only be attempted once per in-game day..</li>
+                            <br>
+                            <li class = "ms-4">Faithless gain a +2 bonus to all rolls involved with using a knife of any sort, for any reason. </li>
+                            <br>
+                            <li class = "ms-4">Faithless cannot be Demoralized.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4">a Faithless character begins with a book on simple subjects of their choice. A kitchen knife, casual modern hooded clothing, service-less mobile phone, studded gloves, and a picture of people they have met.</li>
+                            <br>
+                            <li class = "ms-4">a Faithless character can opt to choose the starting equipment of a character in their party instead.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Guardian Class Page -->
+        <div class = "container rounded py-0" style = "display: none" id= "guard">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/guard.png" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Guardians start with 2 bonus Max HP, and 2 bonus Compassion.</li>
+                            <br>
+                            <li class = "ms-4">Guardians start with a bonus + 1 to Hit Prevention..</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Guardians get a + 2 bonus to any rolls where they protect another character (only directly and immediately. Opening a chest with an antidote does not protect someone poisoned in the room.)</li>
+                            <br>
+                            <li class = "ms-4">whenever an ally is downed within arm’s reach of a Guardian, the Guardian may attempt a D20 roll. If the result was above 15, the Guardian prevents the ally from being downed, and the ally’s HP is forcibly placed at 1 (even if the attack initiating this ability would have sent them into the negatives).</li>
+                            <br>
+                            <li class = "ms-4">whenever a Guardian is dealt damage, automatically prevent 1 of that incoming damage.</li>
+                            <br>
+                            <li class = "ms-4">Guardians gain a + 1 to Teamwork rolls, even if Teamwork is not unlocked.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4"> a Guardian begins with a small bag of their choice: empty bookbag, purse, or tactical vest; casual slim clothing, empty lanyard, and wallet with $20 old-world cash in it. </li>
+                            <br>
+                            <li class = "ms-4">Guardians can also choose a household item that could fit within their pocket.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fledged Class Page -->
+        <div class = "container rounded py-0" style = "display: none" id= "fled">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/fledge.jpg" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Fledged characters gain 1 bonus Compassion.</li>
+                            <br>
+                            <li class = "ms-4">Fledged characters may choose to exchange points of Aggression for Compassion, up to a maximum of 3 points.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">when an ally is dealt damage within vision of a Fledged character, the Fledged character may take 1 of the damage dealt instead.</li>
+                            <br>
+                            <li class = "ms-4"> all attempts at healing are double as effective if a Fledged is healing a different character. </li>
+                            <br>
+                            <li class = "ms-4">enemies dealing damage to Fledged characters receive 1 damage as well.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4">Fledged characters begin with a moderate topical ointment, modern loose clothing, a bottle of water, and a small plushie in the shape of your choice.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bullies Class Page -->
+        <div class = "container rounded py-0" style = "display: none" id= "bull">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/bull.jpg" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Bullies gain 2 bonus Aggression.</li>
+                            <br>
+                            <li class = "ms-4">Bullies may select a bonus Aggression skill and unlock it.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Bullies gain +1 in all their rolls during combat.</li>
+                            <br>
+                            <li class = "ms-4">Bullies deal +2 damage when dealing damage with their fists (gloves, etc. count.)</li>
+                            <br>
+                            <li class = "ms-4">Bullies choose a party member. This Bully adds +2 to all of their Aggression skills when used within arm’s reach of this party member.</li>
+                            <br>
+                            <li class = "ms-4">When Bullies down an opponent, they may roll a D20. If the number is lower than their Speed, they may finish off the opponent instead.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4">Bullies start with short clothing, a wallet with $40 old-world cash, a sports drink, a cigarette, and a ring belonging to a long past family member.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hard Knocks Class page -->
+        <div class = "container rounded py-0" style = "display: none" id= "hardk">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/hardk.png" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Hard Knocks add half of their speed to their Hit Prevention, but cannot wear Heavy Gear.</li>
+                            <br>
+                            <li class = "ms-4">Hard Knocks automatically unlock Athletics.</li>
+                            <br>
+                            <li class = "ms-4">Faithless characters automatically unlock the Brutality skill.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Hard Knocks can use either their Speed stat or Aggression stat to add to Athletics rolls.</li>
+                            <br>
+                            <li class = "ms-4">Hard Knocks can ignore any negative side effects of their starting Gene Splicing.</li>
+                            <br>
+                            <li class = "ms-4">Characters do not associate Hard Knocks to their Affiliation in any negative circumstance (ex. character hates The Laboratory and player character’s affiliation is Laboratory. Character will not despise the player character for their affiliation with the Lab.)</li>
+                            <br>
+                            <li class = "ms-4">Gain a bonus +2 to rolls when using non-equipment random objects as weapons.</li>
+                            <br>
+                            <li class = "ms-4"> Hard Knocks cannot be Wounded.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4">Hard Knocks begin with short ugly ragged clothing, a broken golf-club, and a lock pick. They also begin unbathed for weeks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Student Class Page -->
+        <div class = "container rounded py-0" style = "display: none" id= "stud">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/stud.png" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Students gain a bonus 2 stats in Studiousness.</li>
+                            <br>
+                            <li class = "ms-4">Students can exchange up to 2 stats in one stat, for 2 in another (one time.)</li>
+                            <br>
+                            <li class = "ms-4">Students lose 2 Max HP.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Students automatically unlock Copying.</li>
+                            <br>
+                            <li class = "ms-4">Students gain a bonus + 1 to any rolls involving these skills: Crafting, Teamwork, Innocence, Deceit (only applies if the skill is unlocked).</li>
+                            <br>
+                            <li class = "ms-4">Students can remove a recently (within the last in-game hour) applied genetic mutation from themselves or an ally (once per in-game day.)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4">Students begin with assigned school clothing, a textbook on the topic of their choice, $10 of old-world cash in their pocket, a pencil, and a functioning, but inaccurate watch.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Leader Class Page -->
+        <div class = "container rounded py-0" style = "display: none" id= "lead">
+            <div class = "row">
+                <div class = "col-md-3 " style = "background-color: darkgrey;">
+                    <div class = "row d-flex g-0 overflow-hidden flex-md-row mb-4 justify-content-sm-evenly h-md-250 verticle-center" >
+                        <img class = "border rounded-3"src = "/imgs/lead.jpg" style = "width: 300px; height: 500px;">
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Stat Bonuses</h2>
+                        <ul>
+                            <li class = "ms-4">Leaders gain + 1 Order.</li>
+                            <br>
+                            <li class = "ms-4">Leaders can sacrifice 1 stat point from all other stats, to add 4 to Order.</li>
+                            <br>
+                            <li class = "ms-4">When creating their character, Leaders roll a D6. If the result was 1, add 1 point to Aggression. If 2, add 1 point to Order, and so on. 6 Does not provide a point.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: darkgrey;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Abilities</h2>
+                        <ul>
+                            <li class = "ms-4">Allies within earshot of a Leader deal 1 additional damage each attack.</li>
+                            <br>
+                            <li class = "ms-4">Allies who become demoralized can attempt to roll a D20 for the main action on their turn, and if the result was lower than their Leader’s Order stat, they recover immediately (they are no longer demoralized).</li>
+                            <br>
+                            <li class = "ms-4">Leaders automatically unlock Commanding.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class = "col-md-3" style = "background-color: lightgray;">
+                    <div class = "row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                        <h2 class = "d-flex justify-content-sm-center border-dark border-bottom">Starting Gear</h2>
+                        <ul>
+                            <li class = "ms-4"> Leaders begin with formal wear clothes, a hat of their choice, a functioning mobile phone (no current contacts, or connection to internet,) the ability to speak two other languages of choice, and a functioning golden stopwatch.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container border-top border-dark" style="background-color: white;">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 my-2">
+                <div class="col-md-4 d-flex align-items-center">
+                        <span class="text-muted">&copy; Bluescarf Games</span>
+                </div>
+            
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                    <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                </ul>
+            </footer>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+</body>
+
+<script>
+
+function toggleClass(id)
+{
+
+
+    switch(id)
+    {
+        case("Faithless"):
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("faith").style.display = "block"
+            break;
+        case("Guardian"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("guard").style.display = "block"
+            break;
+        case("Fledged"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("fled").style.display = "block"
+            break;
+        case("Bullies"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("bull").style.display = "block"
+            break;
+        case("Hard"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("hardk").style.display = "block"
+            break;
+        case("Student"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("lead").style.display = "none"
+
+
+            document.getElementById("stud").style.display = "block"
+            break;
+        case("Leader"):
+            document.getElementById("faith").style.display = "none";
+            document.getElementById("guard").style.display = "none";
+            document.getElementById("fled").style.display = "none"
+            document.getElementById("bull").style.display = "none"
+            document.getElementById("hardk").style.display = "none"
+            document.getElementById("stud").style.display = "none"
+
+
+            document.getElementById("lead").style.display = "block"
+            break;
+        default:
+    }
+}
+
+</script>
+
+</html>
