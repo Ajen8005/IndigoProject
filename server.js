@@ -7,7 +7,7 @@ const port = 8081
 app.use(express.static('public'));
 
 app.get('/', function (req, res){
-    res.sendFile(path.join(__dirname + '/html/home.html'))
+    res.sendFile(path.join(__dirname + '/public/html/home.html'))
 })
 
 
